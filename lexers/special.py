@@ -12,9 +12,9 @@
 import re
 import cStringIO
 
-from pygments.lexer import Lexer
-from pygments.token import Token, Error, Text
-from pygments.util import get_choice_opt, b
+from ..lexer import Lexer
+from ..token import Token, Error, Text
+from ..util import get_choice_opt, b
 
 
 __all__ = ['TextLexer', 'RawTokenLexer']

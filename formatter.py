@@ -11,8 +11,8 @@
 
 import codecs
 
-from pygments.util import get_bool_opt
-from pygments.styles import get_style_by_name
+from .util import get_bool_opt
+from .styles import get_style_by_name
 
 __all__ = ['Formatter']
 

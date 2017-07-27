@@ -34,7 +34,7 @@ __all__ = ['lex', 'format', 'highlight']
 
 import sys
 
-from pygments.util import StringIO, BytesIO
+from .util import StringIO, BytesIO
 
 
 def lex(code, lexer):
@@ -87,5 +87,5 @@ def highlight(code, lexer, formatter, outfile=None):
 
 
 if __name__ == '__main__':
-    from pygments.cmdline import main
+    from .cmdline import main
     sys.exit(main(sys.argv))

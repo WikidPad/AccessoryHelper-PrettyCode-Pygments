@@ -14,9 +14,9 @@ import types
 import fnmatch
 from os.path import basename
 
-from pygments.lexers._mapping import LEXERS
-from pygments.plugin import find_plugin_lexers
-from pygments.util import ClassNotFound, bytes
+from ._mapping import LEXERS
+from ..plugin import find_plugin_lexers
+from ..util import ClassNotFound, bytes
 
 
 __all__ = ['get_lexer_by_name', 'get_lexer_for_filename', 'find_lexer_class',
@@ -29,7 +29,13 @@ def _load_lexers(module_name):
     """
     Load a lexer (and all others in the module too).
     """
-    mod = __import__(module_name, None, None, ['__all__'])
+    zipPackageName = ".".join(__name__.split(".")[:-2])
+    try:
+        mod = __import__(module_name, globals(), None, ['__all__'], level=3)
+    except:
+        import traceback
+        traceback.print_exc()
+        raise
     for lexer_name in mod.__all__:
         cls = getattr(mod, lexer_name)
         _lexer_cache[cls.name] = cls
@@ -158,7 +164,7 @@ def guess_lexer_for_filename(_fn, _text, **options):
 
     usage::
 
-        >>> from pygments.lexers import guess_lexer_for_filename
+        >>> from .lexers import guess_lexer_for_filename
         >>> guess_lexer_for_filename('hello.html', '<%= @foo %>')
         <pygments.lexers.templates.RhtmlLexer object at 0xb7d2f32c>
         >>> guess_lexer_for_filename('hello.html', '<h1>{{ title|e }}</h1>')
@@ -222,8 +228,8 @@ class _automodule(types.ModuleType):
         raise AttributeError(name)
 
 
-oldmod = sys.modules['pygments.lexers']
-newmod = _automodule('pygments.lexers')
+oldmod = sys.modules[__name__]
+newmod = _automodule(__name__)
 newmod.__dict__.update(oldmod.__dict__)
-sys.modules['pygments.lexers'] = newmod
+sys.modules[__name__] = newmod
 del newmod.newmod, newmod.oldmod, newmod.sys, newmod.types

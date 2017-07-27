@@ -9,7 +9,7 @@
     :license: BSD, see LICENSE for details.
 """
 
-from pygments.formatter import Formatter
+from ..formatter import Formatter
 
 
 __all__ = ['RtfFormatter']

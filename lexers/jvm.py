@@ -11,12 +11,12 @@
 
 import re
 
-from pygments.lexer import Lexer, RegexLexer, include, bygroups, using, \
+from ..lexer import Lexer, RegexLexer, include, bygroups, using, \
      this
-from pygments.token import Text, Comment, Operator, Keyword, Name, String, \
+from ..token import Text, Comment, Operator, Keyword, Name, String, \
      Number, Punctuation
-from pygments.util import get_choice_opt
-from pygments import unistring as uni
+from ..util import get_choice_opt
+from .. import unistring as uni
 
 
 __all__ = ['JavaLexer', 'ScalaLexer', 'GosuLexer', 'GosuTemplateLexer',

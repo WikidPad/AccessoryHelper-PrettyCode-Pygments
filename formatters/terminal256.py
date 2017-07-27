@@ -26,7 +26,7 @@
 
 import sys
 
-from pygments.formatter import Formatter
+from ..formatter import Formatter
 
 
 __all__ = ['Terminal256Formatter']

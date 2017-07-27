@@ -12,12 +12,12 @@
 import re
 from bisect import bisect
 
-from pygments.lexer import Lexer, LexerContext, RegexLexer, ExtendedRegexLexer, \
+from ..lexer import Lexer, LexerContext, RegexLexer, ExtendedRegexLexer, \
      bygroups, include, using, this, do_insertions
-from pygments.token import Punctuation, Text, Comment, Keyword, Name, String, \
+from ..token import Punctuation, Text, Comment, Keyword, Name, String, \
      Generic, Operator, Number, Whitespace, Literal
-from pygments.util import get_bool_opt, ClassNotFound
-from pygments.lexers.other import BashLexer
+from ..util import get_bool_opt, ClassNotFound
+from .other import BashLexer
 
 __all__ = ['IniLexer', 'PropertiesLexer', 'SourcesListLexer', 'BaseMakefileLexer',
            'MakefileLexer', 'DiffLexer', 'IrcLogsLexer', 'TexLexer',
@@ -656,7 +656,7 @@ class RstLexer(RegexLexer):
     flags = re.MULTILINE
 
     def _handle_sourcecode(self, match):
-        from pygments.lexers import get_lexer_by_name
+        from .lexers import get_lexer_by_name
 
         # section header
         yield match.start(1), Punctuation, match.group(1)
@@ -839,7 +839,7 @@ class VimLexer(RegexLexer):
         ],
     }
     def __init__(self, **options):
-        from pygments.lexers._vimbuiltins import command, option, auto
+        from ._vimbuiltins import command, option, auto
         self._cmd = command
         self._opt = option
         self._aut = auto
@@ -1696,7 +1696,7 @@ class HttpLexer(RegexLexer):
         content = match.group()
         offset = match.start()
         if content_type:
-            from pygments.lexers import get_lexer_for_mimetype
+            from .lexers import get_lexer_for_mimetype
             try:
                 lexer = get_lexer_for_mimetype(content_type)
             except ClassNotFound:

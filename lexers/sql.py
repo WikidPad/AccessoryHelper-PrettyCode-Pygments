@@ -40,12 +40,12 @@
 
 import re
 
-from pygments.lexer import Lexer, RegexLexer, do_insertions, bygroups
-from pygments.token import Punctuation, \
+from ..lexer import Lexer, RegexLexer, do_insertions, bygroups
+from ..token import Punctuation, \
      Text, Comment, Operator, Keyword, Name, String, Number, Generic
-from pygments.lexers import get_lexer_by_name, ClassNotFound
+from .lexers import get_lexer_by_name, ClassNotFound
 
-from pygments.lexers._postgres_builtins import KEYWORDS, DATATYPES, \
+from ._postgres_builtins import KEYWORDS, DATATYPES, \
      PSEUDO_TYPES, PLPGSQL_KEYWORDS
 
 

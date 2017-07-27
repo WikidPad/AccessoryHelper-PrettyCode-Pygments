@@ -9,8 +9,8 @@
     :license: BSD, see LICENSE for details.
 """
 
-from pygments.lexer import RegexLexer, include, bygroups
-from pygments.token import Keyword, Text, Comment, Name, String, Number, \
+from ..lexer import RegexLexer, include, bygroups
+from ..token import Keyword, Text, Comment, Name, String, Number, \
                            Punctuation
 
 __all__ = ['SmaliLexer']

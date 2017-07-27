@@ -12,14 +12,14 @@
 import re
 import copy
 
-from pygments.lexer import RegexLexer, ExtendedRegexLexer, bygroups, using, \
+from ..lexer import RegexLexer, ExtendedRegexLexer, bygroups, using, \
      include, this
-from pygments.token import Text, Comment, Operator, Keyword, Name, String, \
+from ..token import Text, Comment, Operator, Keyword, Name, String, \
      Number, Other, Punctuation, Literal
-from pygments.util import get_bool_opt, get_list_opt, looks_like_xml, \
+from ..util import get_bool_opt, get_list_opt, looks_like_xml, \
                           html_doctype_matches, unirange
-from pygments.lexers.agile import RubyLexer
-from pygments.lexers.compiled import ScalaLexer
+from .agile import RubyLexer
+from .compiled import ScalaLexer
 
 
 __all__ = ['HtmlLexer', 'XmlLexer', 'JavascriptLexer', 'JsonLexer', 'CssLexer',
@@ -781,7 +781,7 @@ class PhpLexer(RegexLexer):
 
         .. sourcecode:: pycon
 
-            >>> from pygments.lexers._phpbuiltins import MODULES
+            >>> from ._phpbuiltins import MODULES
             >>> MODULES.keys()
             ['PHP Options/Info', 'Zip', 'dba', ...]
 
@@ -883,7 +883,7 @@ class PhpLexer(RegexLexer):
         # collect activated functions in a set
         self._functions = set()
         if self.funcnamehighlighting:
-            from pygments.lexers._phpbuiltins import MODULES
+            from ._phpbuiltins import MODULES
             for key, value in MODULES.iteritems():
                 if key not in self.disabledmodules:
                     self._functions.update(value)
@@ -3320,7 +3320,7 @@ class LassoLexer(RegexLexer):
 
         self._builtins = set()
         if self.builtinshighlighting:
-            from pygments.lexers._lassobuiltins import BUILTINS
+            from ._lassobuiltins import BUILTINS
             for key, value in BUILTINS.iteritems():
                 self._builtins.update(value)
         RegexLexer.__init__(self, **options)

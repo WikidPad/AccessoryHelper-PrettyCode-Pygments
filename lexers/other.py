@@ -11,19 +11,19 @@
 
 import re
 
-from pygments.lexer import RegexLexer, include, bygroups, using, \
+from ..lexer import RegexLexer, include, bygroups, using, \
      this, combined, ExtendedRegexLexer
-from pygments.token import Error, Punctuation, Literal, Token, \
+from ..token import Error, Punctuation, Literal, Token, \
      Text, Comment, Operator, Keyword, Name, String, Number, Generic
-from pygments.util import get_bool_opt
-from pygments.lexers.web import HtmlLexer
+from ..util import get_bool_opt
+from .web import HtmlLexer
 
-from pygments.lexers._openedgebuiltins import OPENEDGEKEYWORDS
-from pygments.lexers._robotframeworklexer import RobotFrameworkLexer
+from ._openedgebuiltins import OPENEDGEKEYWORDS
+from ._robotframeworklexer import RobotFrameworkLexer
 
 # backwards compatibility
-from pygments.lexers.sql import SqlLexer, MySqlLexer, SqliteConsoleLexer
-from pygments.lexers.shell import BashLexer, BashSessionLexer, BatchLexer, \
+from .sql import SqlLexer, MySqlLexer, SqliteConsoleLexer
+from .shell import BashLexer, BashSessionLexer, BatchLexer, \
      TcshLexer
 
 __all__ = ['BrainfuckLexer', 'BefungeLexer', 'RedcodeLexer', 'MOOCodeLexer',
@@ -1958,7 +1958,7 @@ class AsymptoteLexer(RegexLexer):
         }
 
     def get_tokens_unprocessed(self, text):
-        from pygments.lexers._asybuiltins import ASYFUNCNAME, ASYVARNAME
+        from ._asybuiltins import ASYFUNCNAME, ASYVARNAME
         for index, token, value in \
                RegexLexer.get_tokens_unprocessed(self, text):
            if token is Name and value in ASYFUNCNAME:
@@ -3193,7 +3193,7 @@ class SourcePawnLexer(RegexLexer):
 
         self._functions = []
         if self.smhighlighting:
-            from pygments.lexers._sourcemodbuiltins import FUNCTIONS
+            from ._sourcemodbuiltins import FUNCTIONS
             self._functions.extend(FUNCTIONS)
         RegexLexer.__init__(self, **options)
 

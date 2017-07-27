@@ -11,15 +11,15 @@
 
 import re
 
-from pygments.lexer import RegexLexer, DelegatingLexer, \
+from ..lexer import RegexLexer, DelegatingLexer, \
     include, bygroups, using
-from pygments.token import Punctuation, Other, Text, Comment, Operator, \
+from ..token import Punctuation, Other, Text, Comment, Operator, \
      Keyword, Name, String, Number, Whitespace
-from pygments.lexers.compiled import JavaLexer, CLexer, CppLexer, \
+from .compiled import JavaLexer, CLexer, CppLexer, \
     ObjectiveCLexer, DLexer
-from pygments.lexers.dotnet import CSharpLexer
-from pygments.lexers.agile import RubyLexer, PythonLexer, PerlLexer
-from pygments.lexers.web import ActionScriptLexer
+from .dotnet import CSharpLexer
+from .agile import RubyLexer, PythonLexer, PerlLexer
+from .web import ActionScriptLexer
 
 
 __all__ = ['RagelLexer', 'RagelEmbeddedLexer', 'RagelCLexer', 'RagelDLexer',

@@ -11,8 +11,8 @@
 
 import re
 
-from pygments.lexer import Lexer, RegexLexer, bygroups, include, do_insertions
-from pygments.token import Text, Comment, Operator, Keyword, Name, \
+from ..lexer import Lexer, RegexLexer, bygroups, include, do_insertions
+from ..token import Text, Comment, Operator, Keyword, Name, \
      String, Number, Punctuation, Literal, Generic, Error
 
 __all__ = ['RacketLexer', 'SchemeLexer', 'CommonLispLexer', 'HaskellLexer',
@@ -737,7 +737,7 @@ class CommonLispLexer(RegexLexer):
     symbol = r'(\|[^|]+\||(?:%s)(?:%s)*)' % (nonmacro, constituent)
 
     def __init__(self, **options):
-        from pygments.lexers._clbuiltins import BUILTIN_FUNCTIONS, \
+        from ._clbuiltins import BUILTIN_FUNCTIONS, \
             SPECIAL_FORMS, MACROS, LAMBDA_LIST_KEYWORDS, DECLARATIONS, \
             BUILTIN_TYPES, BUILTIN_CLASSES
         self.builtin_function = BUILTIN_FUNCTIONS
@@ -1052,7 +1052,7 @@ class LiterateHaskellLexer(Lexer):
                     insertions.append((len(code), [(0, Text, line)]))
         else:
             # latex-style
-            from pygments.lexers.text import TexLexer
+            from .text import TexLexer
             lxlexer = TexLexer(**self.options)
 
             codelines = 0

@@ -11,9 +11,9 @@
 
 import re
 
-from pygments.lexer import RegexLexer, include, bygroups, using, DelegatingLexer
-from pygments.lexers.compiled import DLexer, CppLexer, CLexer
-from pygments.token import Text, Name, Number, String, Comment, Punctuation, \
+from ..lexer import RegexLexer, include, bygroups, using, DelegatingLexer
+from .compiled import DLexer, CppLexer, CLexer
+from ..token import Text, Name, Number, String, Comment, Punctuation, \
      Other, Keyword, Operator
 
 __all__ = ['GasLexer', 'ObjdumpLexer','DObjdumpLexer', 'CppObjdumpLexer',

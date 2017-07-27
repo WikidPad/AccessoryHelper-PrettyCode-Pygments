@@ -10,8 +10,8 @@
 """
 
 
-from pygments.formatter import Formatter
-from pygments.util import get_bool_opt
+from ..formatter import Formatter
+from ..util import get_bool_opt
 
 __all__ = ['BBCodeFormatter']
 

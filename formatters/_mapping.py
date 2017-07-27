@@ -14,19 +14,19 @@
 """
 
 # start
-from pygments.formatters.bbcode import BBCodeFormatter
-from pygments.formatters.html import HtmlFormatter
-from pygments.formatters.img import BmpImageFormatter
-from pygments.formatters.img import GifImageFormatter
-from pygments.formatters.img import ImageFormatter
-from pygments.formatters.img import JpgImageFormatter
-from pygments.formatters.latex import LatexFormatter
-from pygments.formatters.other import NullFormatter
-from pygments.formatters.other import RawTokenFormatter
-from pygments.formatters.rtf import RtfFormatter
-from pygments.formatters.svg import SvgFormatter
-from pygments.formatters.terminal import TerminalFormatter
-from pygments.formatters.terminal256 import Terminal256Formatter
+from .bbcode import BBCodeFormatter
+from .html import HtmlFormatter
+from .img import BmpImageFormatter
+from .img import GifImageFormatter
+from .img import ImageFormatter
+from .img import JpgImageFormatter
+from .latex import LatexFormatter
+from .other import NullFormatter
+from .other import RawTokenFormatter
+from .rtf import RtfFormatter
+from .svg import SvgFormatter
+from .terminal import TerminalFormatter
+from .terminal256 import Terminal256Formatter
 
 FORMATTERS = {
     BBCodeFormatter: ('BBCode', ('bbcode', 'bb'), (), 'Format tokens with BBcodes. These formatting codes are used by many bulletin boards, so you can highlight your sourcecode with pygments before posting it there.'),
@@ -44,49 +44,3 @@ FORMATTERS = {
     TerminalFormatter: ('Terminal', ('terminal', 'console'), (), 'Format tokens with ANSI color sequences, for output in a text console. Color sequences are terminated at newlines, so that paging the output works correctly.')
 }
 
-if __name__ == '__main__':
-    import sys
-    import os
-
-    # lookup formatters
-    found_formatters = []
-    imports = []
-    sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..'))
-    from pygments.util import docstring_headline
-
-    for filename in os.listdir('.'):
-        if filename.endswith('.py') and not filename.startswith('_'):
-            module_name = 'pygments.formatters.%s' % filename[:-3]
-            print module_name
-            module = __import__(module_name, None, None, [''])
-            for formatter_name in module.__all__:
-                imports.append((module_name, formatter_name))
-                formatter = getattr(module, formatter_name)
-                found_formatters.append(
-                    '%s: %r' % (formatter_name,
-                                (formatter.name,
-                                 tuple(formatter.aliases),
-                                 tuple(formatter.filenames),
-                                 docstring_headline(formatter))))
-    # sort them, that should make the diff files for svn smaller
-    found_formatters.sort()
-    imports.sort()
-
-    # extract useful sourcecode from this file
-    f = open(__file__)
-    try:
-        content = f.read()
-    finally:
-        f.close()
-    header = content[:content.find('# start')]
-    footer = content[content.find("if __name__ == '__main__':"):]
-
-    # write new file
-    f = open(__file__, 'w')
-    f.write(header)
-    f.write('# start\n')
-    f.write('\n'.join(['from %s import %s' % imp for imp in imports]))
-    f.write('\n\n')
-    f.write('FORMATTERS = {\n    %s\n}\n\n' % ',\n    '.join(found_formatters))
-    f.write(footer)
-    f.close()

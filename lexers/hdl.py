@@ -10,8 +10,8 @@
 """
 
 import re
-from pygments.lexer import RegexLexer, bygroups, include, using, this
-from pygments.token import \
+from ..lexer import RegexLexer, bygroups, include, using, this
+from ..token import \
      Text, Comment, Operator, Keyword, Name, String, Number, Punctuation, \
      Error
 

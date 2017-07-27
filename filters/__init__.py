@@ -12,12 +12,12 @@
 
 import re
 
-from pygments.token import String, Comment, Keyword, Name, Error, Whitespace, \
+from ..token import String, Comment, Keyword, Name, Error, Whitespace, \
     string_to_tokentype
-from pygments.filter import Filter
-from pygments.util import get_list_opt, get_int_opt, get_bool_opt, \
+from ..filter import Filter
+from ..util import get_list_opt, get_int_opt, get_bool_opt, \
      get_choice_opt, ClassNotFound, OptionError
-from pygments.plugin import find_plugin_filters
+from ..plugin import find_plugin_filters
 
 
 def find_filter_class(filtername):

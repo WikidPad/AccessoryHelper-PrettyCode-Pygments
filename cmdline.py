@@ -12,15 +12,15 @@ import sys
 import getopt
 from textwrap import dedent
 
-from pygments import __version__, highlight
-from pygments.util import ClassNotFound, OptionError, docstring_headline
-from pygments.lexers import get_all_lexers, get_lexer_by_name, get_lexer_for_filename, \
+from . import __version__, highlight
+from .util import ClassNotFound, OptionError, docstring_headline
+from .lexers import get_all_lexers, get_lexer_by_name, get_lexer_for_filename, \
      find_lexer_class, guess_lexer, TextLexer
-from pygments.formatters import get_all_formatters, get_formatter_by_name, \
+from .formatters import get_all_formatters, get_formatter_by_name, \
      get_formatter_for_filename, find_formatter_class, \
      TerminalFormatter  # pylint:disable-msg=E0611
-from pygments.filters import get_all_filters, find_filter_class
-from pygments.styles import get_all_styles, get_style_by_name
+from .filters import get_all_filters, find_filter_class
+from .styles import get_all_styles, get_style_by_name
 
 
 USAGE = """\

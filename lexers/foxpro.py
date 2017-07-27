@@ -11,8 +11,8 @@
 
 import re
 
-from pygments.lexer import RegexLexer
-from pygments.token import Punctuation, Text, Comment, Operator, Keyword, \
+from ..lexer import RegexLexer
+from ..token import Punctuation, Text, Comment, Operator, Keyword, \
      Name, String
 
 __all__ = ['FoxProLexer']

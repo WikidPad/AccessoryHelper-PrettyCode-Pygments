@@ -9,9 +9,9 @@
     :license: BSD, see LICENSE for details.
 """
 
-from pygments.formatter import Formatter
-from pygments.token import Token, STANDARD_TYPES
-from pygments.util import get_bool_opt, get_int_opt, StringIO
+from ..formatter import Formatter
+from ..token import Token, STANDARD_TYPES
+from ..util import get_bool_opt, get_int_opt, StringIO
 
 
 __all__ = ['LatexFormatter']

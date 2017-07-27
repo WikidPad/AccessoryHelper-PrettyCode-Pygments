@@ -12,16 +12,16 @@
 import re
 from string import Template
 
-from pygments.lexer import Lexer, RegexLexer, include, bygroups, using, \
+from ..lexer import Lexer, RegexLexer, include, bygroups, using, \
      this, combined, inherit, do_insertions
-from pygments.util import get_bool_opt, get_list_opt
-from pygments.token import Text, Comment, Operator, Keyword, Name, String, \
+from ..util import get_bool_opt, get_list_opt
+from ..token import Text, Comment, Operator, Keyword, Name, String, \
      Number, Punctuation, Error, Literal, Generic
-from pygments.scanner import Scanner
+from .scanner import Scanner
 
 # backwards compatibility
-from pygments.lexers.functional import OcamlLexer
-from pygments.lexers.jvm import JavaLexer, ScalaLexer
+from .functional import OcamlLexer
+from .jvm import JavaLexer, ScalaLexer
 
 __all__ = ['CLexer', 'CppLexer', 'DLexer', 'DelphiLexer', 'ECLexer', 'DylanLexer',
            'ObjectiveCLexer', 'ObjectiveCppLexer', 'FortranLexer', 'GLShaderLexer',

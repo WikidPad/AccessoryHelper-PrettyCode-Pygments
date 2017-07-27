@@ -9,8 +9,8 @@
     :license: BSD, see LICENSE for details.
 """
 
-from pygments.style import Style
-from pygments.token import Comment, Name, Keyword, String
+from ..style import Style
+from ..token import Comment, Name, Keyword, String
 
 
 class RrtStyle(Style):

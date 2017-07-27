@@ -9,7 +9,7 @@
     :license: BSD, see LICENSE for details.
 """
 
-from pygments.token import Token, STANDARD_TYPES
+from .token import Token, STANDARD_TYPES
 
 
 class StyleMeta(type):

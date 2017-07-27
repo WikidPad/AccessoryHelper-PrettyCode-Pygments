@@ -11,15 +11,15 @@
 
 import re
 
-from pygments.util import shebang_matches
-from pygments.lexer import Lexer, RegexLexer, bygroups, include, \
+from ..util import shebang_matches
+from ..lexer import Lexer, RegexLexer, bygroups, include, \
     combined, do_insertions
-from pygments.token import Comment, String, Punctuation, Keyword, Name, \
+from ..token import Comment, String, Punctuation, Keyword, Name, \
     Operator, Number, Text, Generic
 
-from pygments.lexers.agile import PythonLexer
-from pygments.lexers import _scilab_builtins
-from pygments.lexers import _stan_builtins
+from .agile import PythonLexer
+from .lexers import _scilab_builtins
+from .lexers import _stan_builtins
 
 __all__ = ['JuliaLexer', 'JuliaConsoleLexer', 'MuPADLexer', 'MatlabLexer',
            'MatlabSessionLexer', 'OctaveLexer', 'ScilabLexer', 'NumPyLexer',

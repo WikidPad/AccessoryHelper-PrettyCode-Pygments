@@ -11,12 +11,12 @@
 
 import re
 
-from pygments.lexer import Lexer, RegexLexer, ExtendedRegexLexer, \
+from ..lexer import Lexer, RegexLexer, ExtendedRegexLexer, \
      LexerContext, include, combined, do_insertions, bygroups, using
-from pygments.token import Error, Text, Other, \
+from ..token import Error, Text, Other, \
      Comment, Operator, Keyword, Name, String, Number, Generic, Punctuation
-from pygments.util import get_bool_opt, get_list_opt, shebang_matches
-from pygments import unistring as uni
+from ..util import get_bool_opt, get_list_opt, shebang_matches
+from .. import unistring as uni
 
 
 __all__ = ['PythonLexer', 'PythonConsoleLexer', 'PythonTracebackLexer',
@@ -26,8 +26,8 @@ __all__ = ['PythonLexer', 'PythonConsoleLexer', 'PythonTracebackLexer',
            'FancyLexer', 'DgLexer']
 
 # b/w compatibility
-from pygments.lexers.functional import SchemeLexer
-from pygments.lexers.jvm import IokeLexer, ClojureLexer
+from .functional import SchemeLexer
+from .jvm import IokeLexer, ClojureLexer
 
 line_re  = re.compile('.*?\n')
 
@@ -1031,7 +1031,7 @@ class LuaLexer(RegexLexer):
 
         .. sourcecode:: pycon
 
-            >>> from pygments.lexers._luabuiltins import MODULES
+            >>> from ._luabuiltins import MODULES
             >>> MODULES.keys()
             ['string', 'coroutine', 'modules', 'io', 'basic', ...]
     """
@@ -1114,7 +1114,7 @@ class LuaLexer(RegexLexer):
 
         self._functions = set()
         if self.func_name_highlighting:
-            from pygments.lexers._luabuiltins import MODULES
+            from ._luabuiltins import MODULES
             for mod, func in MODULES.iteritems():
                 if mod not in self.disabled_modules:
                     self._functions.update(func)

@@ -25,8 +25,8 @@
 
 import re
 
-from pygments.lexer import Lexer
-from pygments.token import Token
+from ..lexer import Lexer
+from ..token import Token
 
 
 HEADING = Token.Generic.Heading

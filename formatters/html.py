@@ -14,9 +14,9 @@ import sys
 import os.path
 import StringIO
 
-from pygments.formatter import Formatter
-from pygments.token import Token, Text, STANDARD_TYPES
-from pygments.util import get_bool_opt, get_int_opt, get_list_opt, bytes
+from ..formatter import Formatter
+from ..token import Token, Text, STANDARD_TYPES
+from ..util import get_bool_opt, get_int_opt, get_list_opt, bytes
 
 try:
     import ctags

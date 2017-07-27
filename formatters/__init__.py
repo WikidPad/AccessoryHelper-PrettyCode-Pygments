@@ -11,9 +11,9 @@
 import os.path
 import fnmatch
 
-from pygments.formatters._mapping import FORMATTERS
-from pygments.plugin import find_plugin_formatters
-from pygments.util import ClassNotFound
+from ._mapping import FORMATTERS
+from ..plugin import find_plugin_formatters
+from ..util import ClassNotFound
 
 ns = globals()
 for fcls in FORMATTERS:

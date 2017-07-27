@@ -11,10 +11,10 @@
 
 import re
 
-from pygments.lexer import Lexer, RegexLexer, do_insertions, bygroups, include
-from pygments.token import Punctuation, \
+from ..lexer import Lexer, RegexLexer, do_insertions, bygroups, include
+from ..token import Punctuation, \
      Text, Comment, Operator, Keyword, Name, String, Number, Generic
-from pygments.util import shebang_matches
+from ..util import shebang_matches
 
 
 __all__ = ['BashLexer', 'BashSessionLexer', 'TcshLexer', 'BatchLexer',
