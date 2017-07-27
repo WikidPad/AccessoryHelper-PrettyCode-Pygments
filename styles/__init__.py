@@ -5,7 +5,7 @@
 
     Contains built-in styles.
 
-    :copyright: Copyright 2006-2013 by the Pygments team, see AUTHORS.
+    :copyright: Copyright 2006-2017 by the Pygments team, see AUTHORS.
     :license: BSD, see LICENSE for details.
 """
 
@@ -34,6 +34,16 @@ STYLE_MAP = {
     'vs':       'vs::VisualStudioStyle',
     'tango':    'tango::TangoStyle',
     'rrt':      'rrt::RrtStyle',
+    'xcode':    'xcode::XcodeStyle',
+    'igor':     'igor::IgorStyle',
+    'paraiso-light': 'paraiso_light::ParaisoLightStyle',
+    'paraiso-dark': 'paraiso_dark::ParaisoDarkStyle',
+    'lovelace': 'lovelace::LovelaceStyle',
+    'algol':    'algol::AlgolStyle',
+    'algol_nu': 'algol_nu::Algol_NuStyle',
+    'arduino':  'arduino::ArduinoStyle',
+    'rainbow_dash': 'rainbow_dash::RainbowDashStyle',
+    'abap':     'abap::AbapStyle',
 }
 
 
@@ -51,10 +61,8 @@ def get_style_by_name(name):
         cls = name.title() + "Style"
 
     try:
-        mod = __import__(mod, globals(), None, [cls], level=1)
+        mod = __import__('pygments.styles.' + mod, globals(), None, [cls], level=3)
     except ImportError:
-        import traceback
-        traceback.print_exc()
         raise ClassNotFound("Could not find style module %r" % mod +
                          (builtin and ", though it should be builtin") + ".")
     try:
