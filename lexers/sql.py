@@ -43,7 +43,7 @@ import re
 from ..lexer import Lexer, RegexLexer, do_insertions, bygroups
 from ..token import Punctuation, \
      Text, Comment, Operator, Keyword, Name, String, Number, Generic
-from .lexers import get_lexer_by_name, ClassNotFound
+from . import get_lexer_by_name, ClassNotFound
 
 from ._postgres_builtins import KEYWORDS, DATATYPES, \
      PSEUDO_TYPES, PLPGSQL_KEYWORDS

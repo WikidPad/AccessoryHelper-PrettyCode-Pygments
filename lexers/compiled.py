@@ -17,7 +17,7 @@ from ..lexer import Lexer, RegexLexer, include, bygroups, using, \
 from ..util import get_bool_opt, get_list_opt
 from ..token import Text, Comment, Operator, Keyword, Name, String, \
      Number, Punctuation, Error, Literal, Generic
-from .scanner import Scanner
+from ..scanner import Scanner
 
 # backwards compatibility
 from .functional import OcamlLexer
