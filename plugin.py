@@ -34,35 +34,20 @@
 
     :copyright: Copyright 2006-2017 by the Pygments team, see AUTHORS.
     :license: BSD, see LICENSE for details.
+    
+    Changed by Michael Butscher 2018-03-08: Changed to no-op as it could lead
+        to errors if a plugin is installed which in turn expects a regular
+        pygments installation to be available (and it isn't)
 """
-LEXER_ENTRY_POINT = 'pygments.lexers'
-FORMATTER_ENTRY_POINT = 'pygments.formatters'
-STYLE_ENTRY_POINT = 'pygments.styles'
-FILTER_ENTRY_POINT = 'pygments.filters'
-
-def iter_entry_points(group_name):
-    try:
-        import pkg_resources
-    except ImportError:
-        return []
-
-    return pkg_resources.iter_entry_points(group_name)
 
 def find_plugin_lexers():
-    for entrypoint in iter_entry_points(LEXER_ENTRY_POINT):
-        yield entrypoint.load()
-
+    return ()
 
 def find_plugin_formatters():
-    for entrypoint in iter_entry_points(FORMATTER_ENTRY_POINT):
-        yield entrypoint.name, entrypoint.load()
-
+    return ()
 
 def find_plugin_styles():
-    for entrypoint in iter_entry_points(STYLE_ENTRY_POINT):
-        yield entrypoint.name, entrypoint.load()
-
+    return ()
 
 def find_plugin_filters():
-    for entrypoint in iter_entry_points(FILTER_ENTRY_POINT):
-        yield entrypoint.name, entrypoint.load()
+    return ()
